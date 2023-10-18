@@ -1,5 +1,19 @@
 ---
+const pageTitle = "About Me";
 
+const identity = {
+    firstName: "Paul",
+    country: "France",
+    occupation: "Technical Writer",
+    hobbies: ["photography", "birdwatching", "baseball"]
+};
+
+const skills = ["HTML", "CSS", "Javascript", "Astro"];
+
+//Conditional render
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,13 +22,24 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>About</title>
+        <title>{pageTitle}</title>
     </head>
     <body>
-        <h1>About Me</h1>
+        <h1>{pageTitle}</h1>
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
         <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
         <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+        <ul>
+            <li>My name is {identity.firstName}</li>
+        </ul>
+        <ul>
+            {skills.map((skill) => 
+                <li>{skill}</li>
+            )}
+        </ul>
+        {happy && <p>I am happy to be learning Astro!</p>}
+        {finished && <p>I am happy to be learning Astro!</p>}
+        {goal === 3 ? <p>Right condition!</p> : <p>False condition!</p>}
     </body>
 </html>
