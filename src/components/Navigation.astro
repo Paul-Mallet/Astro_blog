@@ -3,8 +3,8 @@ const links = ['home', 'about', 'blog', 'tags'];
 const home = 'home';
 ---
 
-<div class="nav-links">
+<div transition:animate="slide" class="nav-links">
     {links.map((link) =>
-        <a href={ "/" + (home === link ? "" : link) }>{link}</a>
+        <a href={ "/" + (home === link ? "" : link) } data-astro-reload>{link}</a>
     )}
 </div>
