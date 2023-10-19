@@ -1,33 +1,20 @@
 ---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "About Me";
-
 const identity = {
     firstName: "Paul",
     country: "France",
     occupation: "Technical Writer",
     hobbies: ["photography", "birdwatching", "baseball"]
 };
-
 const skills = ["HTML", "CSS", "Javascript", "Astro"];
-
 //Conditional render
 const happy = true;
 const finished = false;
 const goal = 3;
 ---
-
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
-    <body>
-        <h1>{pageTitle}</h1>
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
+    <BaseLayout pageTitle={pageTitle}>
         <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
         <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
         <ul>
@@ -35,11 +22,16 @@ const goal = 3;
         </ul>
         <ul>
             {skills.map((skill) => 
-                <li>{skill}</li>
+                <li class="skill">{skill}</li>
             )}
         </ul>
         {happy && <p>I am happy to be learning Astro!</p>}
         {finished && <p>I am happy to be learning Astro!</p>}
         {goal === 3 ? <p>Right condition!</p> : <p>False condition!</p>}
-    </body>
-</html>
+    </BaseLayout>
+<style is:global>
+    h1
+    {
+        text-decoration: underline;
+    }
+</style>

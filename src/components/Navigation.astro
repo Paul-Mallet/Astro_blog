@@ -1,0 +1,10 @@
+---
+const links = ['home', 'about', 'blog', 'tags'];
+const home = 'home';
+---
+
+<div class="nav-links">
+    {links.map((link) =>
+        <a href={ "/" + (home === link ? "" : link) }>{link}</a>
+    )}
+</div>
